@@ -9,6 +9,16 @@ apt list git -a
 
 apt-cache pkgnames git
 
-or... Just try run git command :D
+----------------------------
 
-As you can see, Git is installed, but nevertheless, we'll try to install it again
+Install Git
+In order to install Git, you can use multiple ways, we will use apt command.
+
+apt install -y git
+
+----------------------------
+git --version
+
+This command will show you version of installed package.
+----------------------------
+
