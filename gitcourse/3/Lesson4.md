@@ -41,3 +41,52 @@ git checkout .
 
 --------------------------------------
 
+Reset the current HEAD to the selected state
+git reset moves the current pointer in HEAD and branch refs to specific state. git checkout does similar thing, but in fact, both of these commands operates on different levels
+
+Reset has three main ways of operating, but we will touch only two of them. This time --mixed is not covered.
+
+[!] --soft
+git log shows that we have many changes done. We have one commit for each file.
+
+git log
+
+Let't reset the HEAD to the state before commiting the last file.
+
+But before, let's see what is inside the files
+
+cat testfile-04
+
+cat testfile-02
+
+git reset --soft HEAD~1
+
+Now let's see what we have.
+
+git status
+
+git log
+
+cat testfile-04
+
+With --soft parameter we came back to the previous HEAD of the repository, but all changes which we commited are unchanged.
+
+
+--hard
+Now let's try something more powerful.
+
+git reset --hard HEAD~2
+
+And let's look what happened
+
+git status
+
+git log
+
+cat testfile-04
+
+cat testfile-02
+
+What we did?
+
+We came back two more commits (~HEAD~2) and we said, this time we want to not only move back, but also we want to remove all changes which were done.
