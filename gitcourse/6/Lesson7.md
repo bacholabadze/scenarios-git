@@ -41,3 +41,13 @@ Well, there is nothing about our new file.
 In order to see the difference between staged work and HEAD, you need to say this explicitly.
 
 git diff --staged
+
+------------------------------------------------------------------
+
+Git show
+Another useful commad is git show. This will give you information similar to git log.
+
+git show work by default against HEAD. Of course you can use it to any commit and any file.
+
+git show
+
