@@ -102,4 +102,72 @@ git adog
 
 We succesfully tagged commit from history.
 
-_______________________________________ to be continued
+_______________________________________ 
+
+Navigate through tags
+Navigation between tags is very easy. We already know the command.
+
+clear && git tag
+
+let's jump to first tag
+
+git checkout v1.0
+
+Ok. We switched. Probably. Let's check.
+
+git adog
+
+Yes, HEAD is on the same commit as tag v1.0.
+
+But...
+
+Where we are on our branch?
+
+git branch
+
+Oh... We are detached from master. Makes sense, we jumped back into past.
+
+Ok. log gives us information where we are. Let's be sure.
+
+git tag
+
+Hm... Not very helpfull, right?
+
+To check what on what tag you are currently on, use
+
+git describe
+
+Or
+
+git describe --tags
+
+to be more exact.
+
+git describe will return info about current tag. If there is no tag created yet, git will throw an error. If we are somewhere in the middle:
+
+commitbetweentags=$(git adog | grep 'testfile-05' | awk '{print $2}' | head -n1)
+
+git checkout $commitbetweentags
+
+git adog
+
+git describe
+
+We see now the tag on which we already started to build our changes.
+
+__________________________________________________________________________________--
+
+Delete tag
+Ok, let's go back to the Master branch (what means to the top of our work before the recent change - in our case).
+
+git checkout master
+
+And now we delete v1.0 tag.
+
+git tag -d v1.0
+
+git tag
+
+git adog
+
+Yep, tag is deleted.
